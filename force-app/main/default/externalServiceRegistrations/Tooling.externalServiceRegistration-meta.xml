@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Tooling</label>
+    <namedCredential>MyOrg</namedCredential>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;SF Tooling API&quot;,
+    &quot;version&quot;: &quot;1.0&quot;
+  },
+  &quot;paths&quot;: {
+    &quot;/tooling&quot;: {},
+    &quot;/tooling/sobjects/{object}/{id}&quot;: {
+      &quot;delete&quot;: {
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;object&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;id&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {}
+          }
+        }
+      }
+    },
+    &quot;/tooling/query&quot;: {
+      &quot;get&quot;: {
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;q&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {
+              &quot;title&quot;: &quot;result&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;additionalProperties&quot;: true,
+              &quot;required&quot;: [
+                &quot;done&quot;,
+                &quot;records&quot;
+              ],
+              &quot;properties&quot;: {
+                &quot;done&quot;: {
+                  &quot;type&quot;: &quot;boolean&quot;
+                },
+                &quot;records&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/definitions/SObject&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;SObject&quot;: {
+      &quot;title&quot;: &quot;record&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;Id&quot;,
+        &quot;FullName&quot;,
+        &quot;DeveloperName&quot;,
+        &quot;MasterLabel&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;Id&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;FullName&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;DeveloperName&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;MasterLabel&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>

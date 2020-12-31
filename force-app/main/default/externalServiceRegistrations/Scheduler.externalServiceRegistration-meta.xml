@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>Scheduler</label>
+    <namedCredential>MyOrg</namedCredential>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Scheduling&quot;,
+    &quot;version&quot;: &quot;1.0&quot;
+  },
+  &quot;paths&quot;: {
+    &quot;/scheduling&quot;: {},
+    &quot;/scheduling/getAppointmentSlots&quot;: {
+      &quot;post&quot;: {
+        &quot;operationId&quot;: &quot;getSlots&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;in&quot;: &quot;body&quot;,
+            &quot;name&quot;: &quot;generated&quot;,
+            &quot;schema&quot;: {
+              &quot;title&quot;: &quot;reqBody&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;additionalProperties&quot;: true,
+              &quot;required&quot;: [
+                &quot;requiredResourceIds&quot;,
+                &quot;territoryIds&quot;
+              ],
+              &quot;properties&quot;: {
+                &quot;requiredResourceIds&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;startTime&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;primaryResourceId&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;territoryIds&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;allowConcurrentScheduling&quot;: {
+                  &quot;type&quot;: &quot;boolean&quot;
+                },
+                &quot;accountId&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;workTypeGroupId&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;endTime&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;workType&quot;: {
+                  &quot;$ref&quot;: &quot;#/definitions/WorkType&quot;
+                },
+                &quot;schedulingPolicyId&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                }
+              }
+            }
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {
+              &quot;title&quot;: &quot;respBody&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;additionalProperties&quot;: true,
+              &quot;required&quot;: [
+                &quot;timeSlots&quot;
+              ],
+              &quot;properties&quot;: {
+                &quot;timeSlots&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;$ref&quot;: &quot;#/definitions/TimeSlot&quot;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;WorkType&quot;: {
+      &quot;title&quot;: &quot;worktype&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;durationInMinutes&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;TimeSlot&quot;: {
+      &quot;title&quot;: &quot;slot&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;startTime&quot;,
+        &quot;endTime&quot;,
+        &quot;territoryId&quot;,
+        &quot;remainingAppointments&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;startTime&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;endTime&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;territoryId&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;remainingAppointments&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        }
+      }
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>

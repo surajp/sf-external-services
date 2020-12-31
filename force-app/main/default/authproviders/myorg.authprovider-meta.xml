@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <consumerKey>3MVG96hCAx1bhPai8LA0.fuTMP3A59fwUG_Yf3b3c7AYskDWS0w.iky7iWraeXg3u9_BG0PKLO_zGW4thgkzL</consumerKey>
+    <consumerSecret>ztjVQSqUMLctl9f+UxBaSXGO2CLZVmXtLZ1qDmCqGp5GIBNdEGyR4vVD2Yw3czZ9gEScn33h1AG9wgzITXeXknBBGPdiC2rX</consumerSecret>
+    <friendlyName>myorg</friendlyName>
+    <includeOrgIdInIdentifier>true</includeOrgIdInIdentifier>
+    <providerType>Salesforce</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+</AuthProvider>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>ExchangeRate</label>
+    <namedCredential>Exchange_Rate</namedCredential>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;info&quot;: {
+    &quot;title&quot;: &quot;Exchange Rate&quot;,
+    &quot;version&quot;: &quot;1.0&quot;
+  },
+  &quot;paths&quot;: {
+    &quot;/latest&quot;: {
+      &quot;x-amf-displayName&quot;: &quot;latest&quot;,
+      &quot;get&quot;: {
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;symbols&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;base&quot;,
+            &quot;required&quot;: true,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;&quot;,
+            &quot;x-amf-mediaType&quot;: &quot;application/json&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Conversions&quot;
+            }
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;Conversions&quot;: {
+      &quot;title&quot;: &quot;conversions&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;rates&quot;,
+        &quot;base&quot;,
+        &quot;date&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;rates&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/rates&quot;
+        },
+        &quot;base&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;rates&quot;: {
+      &quot;title&quot;: &quot;rates&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;additionalProperties&quot;: true,
+      &quot;required&quot;: [
+        &quot;AUD&quot;,
+        &quot;BRL&quot;,
+        &quot;EUR&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;AUD&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;BRL&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;EUR&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>
