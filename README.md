@@ -57,3 +57,7 @@ We will be using the `GET` method on `tooling.query` resource first to retrieve 
 ![lightning_scheduler_add_ids](./assets/images/scheduling_add_ids.png)
 ![lightning_scheduler_set_params](./assets/images/scheduling_setparams.png)
 ![lightning_scheduler_action](./assets/images/scheduling_action.png)
+
+### Closing remarks
+
+RAML can be a very powerful tool allowing both admins and developers to import most REST APIs as External Services into Salesforce. Coupled with the advances that Salesforce has been making in Flows, and the fact that exposing External Services outside Flows is on the Salesforce roadmap, this can greatly reduce the amount of code needed for integrations.
