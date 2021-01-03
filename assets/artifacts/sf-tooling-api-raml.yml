@@ -1,0 +1,38 @@
+#%RAML 1.0
+title: SF Tooling API
+
+types:
+  SObject:
+    displayName: record
+    properties:
+      Id: string
+      FullName: string
+      DeveloperName: string
+      MasterLabel: string
+
+/tooling:
+  /sobjects/{object}/{id}:
+    displayName: singleRecord
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+  
+  /query:
+    displayName: query
+    get:
+      queryParameters:
+        q: string
+      responses:
+        200:
+          body:
+            application/json:
+              displayName: result
+              properties:
+                done: boolean
+                records: SObject[]
+                
+
+            
+        

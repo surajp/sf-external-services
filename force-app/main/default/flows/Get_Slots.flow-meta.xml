@@ -3,8 +3,8 @@
     <actionCalls>
         <name>Get_Slots</name>
         <label>Get Slots</label>
-        <locationX>505</locationX>
-        <locationY>132</locationY>
+        <locationX>528</locationX>
+        <locationY>130</locationY>
         <actionName>Scheduler.getSlots</actionName>
         <actionType>externalService</actionType>
         <connector>
@@ -39,26 +39,19 @@
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>Set_Req_Values</targetReference>
+            <targetReference>Assign_Req_Params</targetReference>
         </connector>
     </assignments>
     <assignments>
-        <name>Set_Req_Values</name>
-        <label>Set Req Values</label>
-        <locationX>346</locationX>
-        <locationY>207</locationY>
+        <name>Assign_Req_Params</name>
+        <label>Assign Req Params</label>
+        <locationX>301</locationX>
+        <locationY>197</locationY>
         <assignmentItems>
             <assignToReference>var_req.accountId</assignToReference>
             <operator>Assign</operator>
             <value>
                 <stringValue>0015400000ZN9i4AAD</stringValue>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>var_req.workType.id</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>08q54000000D199AAC</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -73,6 +66,13 @@
             <operator>Assign</operator>
             <value>
                 <elementReference>var_territoryIdsColl</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>var_req.workType.id</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>08q54000000D199AAC</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -110,7 +110,7 @@
         <allowPause>true</allowPause>
         <fields>
             <name>screen_err</name>
-            <fieldText>&lt;p&gt;{!Get_Slots.200}&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;{!Get_Slots.200.timeSlots}&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
         </fields>
         <fields>

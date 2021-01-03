@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SF Tooling API",
+    "version": "1.0"
+  },
+  "paths": {
+    "/tooling": {},
+    "/tooling/sobjects/{object}/{id}": {
+      "x-amf-displayName": "singleRecord",
+      "delete": {
+        "parameters": [
+          {
+            "name": "object",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/tooling/query": {
+      "x-amf-displayName": "query",
+      "get": {
+        "parameters": [
+          {
+            "name": "q",
+            "required": true,
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "title": "result",
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "done",
+                "records"
+              ],
+              "properties": {
+                "done": {
+                  "type": "boolean"
+                },
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/SObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "SObject": {
+      "title": "record",
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "Id",
+        "FullName",
+        "DeveloperName",
+        "MasterLabel"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "FullName": {
+          "type": "string"
+        },
+        "DeveloperName": {
+          "type": "string"
+        },
+        "MasterLabel": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

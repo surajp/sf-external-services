@@ -118,10 +118,12 @@
       ],
       &quot;properties&quot;: {
         &quot;startTime&quot;: {
-          &quot;type&quot;: &quot;string&quot;
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;date-time&quot;
         },
         &quot;endTime&quot;: {
-          &quot;type&quot;: &quot;string&quot;
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;date-time&quot;
         },
         &quot;territoryId&quot;: {
           &quot;type&quot;: &quot;string&quot;

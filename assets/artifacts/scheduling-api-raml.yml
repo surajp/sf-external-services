@@ -1,0 +1,22 @@
+#%RAML 1.0
+title: Scheduling
+
+uses:
+  Types: resources/types.raml
+
+/scheduling:
+  /getAppointmentSlots:
+    post:
+      displayName: getSlots
+      body:
+        application/json:
+          displayName: reqBody
+          type: Types.SlotsRequest
+      responses:
+        200:
+          body:
+            application/json:
+              displayName: respBody
+              properties:
+                timeSlots: Types.TimeSlot[]
+            

@@ -1,0 +1,133 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Scheduling",
+    "version": "1.0"
+  },
+  "paths": {
+    "/scheduling": {},
+    "/scheduling/getAppointmentSlots": {
+      "post": {
+        "operationId": "getSlots",
+        "parameters": [
+          {
+            "x-amf-mediaType": "application/json",
+            "in": "body",
+            "name": "generated",
+            "schema": {
+              "title": "reqBody",
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "requiredResourceIds",
+                "territoryIds"
+              ],
+              "properties": {
+                "requiredResourceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "startTime": {
+                  "type": "string"
+                },
+                "primaryResourceId": {
+                  "type": "string"
+                },
+                "territoryIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "allowConcurrentScheduling": {
+                  "type": "boolean"
+                },
+                "accountId": {
+                  "type": "string"
+                },
+                "workTypeGroupId": {
+                  "type": "string"
+                },
+                "endTime": {
+                  "type": "string"
+                },
+                "workType": {
+                  "$ref": "#/definitions/WorkType"
+                },
+                "schedulingPolicyId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "x-amf-mediaType": "application/json",
+            "schema": {
+              "title": "respBody",
+              "type": "object",
+              "additionalProperties": true,
+              "required": [
+                "timeSlots"
+              ],
+              "properties": {
+                "timeSlots": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/TimeSlot"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "WorkType": {
+      "title": "worktype",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "durationInMinutes": {
+          "type": "string"
+        }
+      }
+    },
+    "TimeSlot": {
+      "title": "slot",
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "startTime",
+        "endTime",
+        "territoryId",
+        "remainingAppointments"
+      ],
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "territoryId": {
+          "type": "string"
+        },
+        "remainingAppointments": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
