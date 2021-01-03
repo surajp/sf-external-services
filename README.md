@@ -1,4 +1,4 @@
-##Using External Services to call Salesforce APIs in Flow
+## Using External Services to call Salesforce APIs in Flow
 
 Salesforce introduced External Services a few years ago to enable admins to invoke APIs without having to write Apex code. At a high level, the concept is as follows: The endpoint url and authentication would be defined by a Named Credential. The API Schema should be defined in OAS 2.0 format and imported into Salesforce as an “External Service”. Salesforce would generate classes, internally, based on the imported schema, to invoke the API and make them available as Invocable Actions in Flows. On paper, this is really great and would open up whole new worlds for admins. However, in practice, this has a few issues. 
 
@@ -22,7 +22,7 @@ It could take upto 30 minutes for your Connected App’s client id to be recogni
 
 Alright, onward to the aforementioned use cases now
 
-###Using REST API to set a User’s password
+### Using REST API to set a User’s password
 
 I’m not sure of the real-world applications of this one. Maybe granting a user permission to reset passwords or set temporary passwords for other users, without giving them Delegated Admin permissions. For example, you could identify a `Delegated Admin` for each of your Partner Accounts who can manage passwords for all users for just that Partner. It’s easy to build the checks and balances such a process would take, using standard Flow components. And the External Service can be used to actually set/reset the password.
 
@@ -36,7 +36,7 @@ Once the [RAML](./assets/artifacts/password_api_raml.yml) is created, the next s
 ![set_password_flow_assignment](./assets/images/change_pass_set_pass.png)
 ![set_password_flow_action](./assets/images/change_pass_call_action.png)
 
-###Using Tooling API to delete Inactive Flow Versions
+### Using Tooling API to delete Inactive Flow Versions
 
 Deleting inactive Flow versions has always been a pain, with Salesforce lacking a great UI to do so, and requiring multiple clicks to delete each version. Recently, folks over at <a href="https://unofficialsf.com" target="_blank">Unofficial SF</a> have created an <a href="https://unofficialsf.com/flow-and-process-builder-list-view-with-batch-delete/" target="_blank">awesome datatable component</a> to ease the process. Read on to see how we can leverage tooling api for this through flows. 
 
@@ -48,7 +48,7 @@ We will be using the `GET` method on `tooling.query` resource first to retrieve 
 ![delete_flow_versions_action](./assets/images/delete_flows_action.png)
 
 
-###Call Lightning Scheduling API to get available time slots
+### Call Lightning Scheduling API to get available time slots
 
 <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_ls_intro.htm" target="_blank">Lightning Scheduler has its own REST APIs</a> that developers frequently end up working with to expand upon standard functionality. Their <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/requests_ls_getappointmentslots.htm" target="_blank">`getAppointmentSlots`</a> API returns available time slots given  a resourceId, Account Id and Work Type/Group Id. Here’s what the [RAML](./assets/artifacts/scheduling-api-raml.yml) and [OAS](./assets/artifacts/scheduling-api-oas.json) schema files look like for this API. And here are some screenshots of a Flow that gets the available time slots for some hard-coded values of the Account ID, Resource Id and Work Type Id.
 
