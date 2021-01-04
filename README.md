@@ -2,10 +2,10 @@
 
 Salesforce introduced <a href="https://trailhead.salesforce.com/en/content/learn/modules/external-services/get-started-with-external-services" target="_blank">External Services</a> a few years ago to enable admins to invoke APIs without having to write Apex code. At a high level, the concept is as follows: The endpoint url and authentication would be defined by a <a href="https://help.salesforce.com/articleView?id=named_credentials_about.htm" target="_blank">Named Credential</a>. The API Schema should be defined in <a href="https://swagger.io/specification/v2/">OAS 2.0</a> format and imported into Salesforce as an “External Service”. Salesforce would generate classes, internally, based on the imported schema, to invoke the API and make them available as <a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_actions_invocable.htm" target="_blank">Invocable Actions</a> in Flows. On paper, this is really great and would open up whole new worlds for admins. However, in practice, this has a few issues. 
 
-Even though OAS schema for defining REST APIs have been around for a while and show a lot of promise (ala, WSDLs in SOAP), their adoption has been lacking. I see a couple of main reasons for this:
-* A lack of tools in major IDEs to auto-generate the schema file when building APIs 
-* The schema is too complicated to create by hand and can be intimidating to look at, for larger APIs
-* It can’t handle dynamic properties and requires that all request and response properties be named. A lot of modern APIs have request and response objects with dynamic schemas, which may not translate well enough to External Services
+* Even though OAS schema for defining REST APIs have been around for a while and show a lot of promise (ala, WSDLs in SOAP), their adoption has been lacking. I see a couple of major reasons for this:
+  * A lack of tools in major IDEs to auto-generate the schema file when building APIs 
+  * The schema is too complicated to create by hand and can be intimidating to look at, for larger APIs
+* It can’t handle dynamic properties and requires that all request and response properties be named. A lot of modern APIs have request and response objects with dynamic schemas, which may not translate well enough to External Services.
 
 Consequently, External Services never really took off and don’t seem to be getting much love from the community. However, their potential is very real and can really supercharge Flows, without adding to the amount of code that developers need to write, test and maintain.
 
